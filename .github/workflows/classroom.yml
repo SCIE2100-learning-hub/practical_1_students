@@ -4,7 +4,6 @@ on:
   - workflow_dispatch
   - repository_dispatch
 permissions:
-  checks: write
   actions: read
   contents: read
 jobs:
@@ -12,24 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
       
-    - name: Download tests
-      env:
-        ANSWERS: ${{ secrets.PRAC_1_ANSWERS }}
-      run: |
-        curl -L "$ANSWERS" -o prac_1_test.py
+      - name: Download tests
+        env:
+          ANSWERS: ${{ secrets.PRAC_1_ANSWERS }}
+        run: |
+          curl -L "$ANSWERS" -o prac_1_test.py
 
-    - name: Practical 1 tests
-      id: python-test
-      uses: classroom-resources/autograding-python-grader@v1
+      - name: check file 
+        run: cat prac_1_test.py
 
-    - name: Autograding Reporter
-      uses: ./
-      env: 
-        PYTHON-TEST_RESULTS: "${{steps.python-test.outputs.result}}"
-      with:
-        runners: python-test
+      - name: Practical 1 tests
+        id: python-test
+        uses: classroom-resources/autograding-python-grader@v1
 
-  
+      - name: Autograding Reporter
+        uses: ./
+        env: 
+          PYTHON-TEST_RESULTS: "${{steps.python-test.outputs.result}}"
+        with:
+          runners: python-test
