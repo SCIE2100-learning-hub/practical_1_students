@@ -20,6 +20,9 @@ jobs:
         run: |
           curl -L "$ANSWERS" -o prac_1_test.py
 
+      - name: test
+        run: ls
+
       - name: Practical 1 tests
         id: python-test
         uses: classroom-resources/autograding-python-grader@v1
