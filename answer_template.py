@@ -14,7 +14,7 @@ q1 = "example_1, example_2"
 # just enter __len__
 ############################################################
 
-q2a = " "
+q2a = "foo"
 
 ####################### QUESTION 2B ########################
 # In words, describe how the __str__ method is defined for 
