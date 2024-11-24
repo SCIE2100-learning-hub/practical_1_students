@@ -20,16 +20,6 @@ jobs:
         run: |
           curl -L "$ANSWERS" -o prac_1_test.py
 
-      - name: test
-        run: ls
-
-      - name: Practical 1 tests
-        id: python-test
-        uses: classroom-resources/autograding-python-grader@v1
-
-      - name: Autograding Reporter
-        uses: classroom-resources/autograding-grading-reporter@v1
-        env: 
-          PYTHON-TEST_RESULTS: "${{steps.python-test.outputs.result}}"
-        with:
-          runners: python-test
+      - name: Run Practical 1 tests
+        run: pytest -q --tb-short
+      
