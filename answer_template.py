@@ -6,7 +6,7 @@
 # correct and your answers are separated by a comma (,).
 ############################################################
 
-q1 = " "
+q1 = "example_1, example_2"
 
 ####################### QUESTION 2A ########################
 # List the 'special' functions from the Sequence class. Just 
