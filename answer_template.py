@@ -21,7 +21,7 @@ q2a = "foo"
 # the Sequence class.
 ############################################################
 
-q2b = " " 
+q2b = "bar" 
 
 ####################### QUESTION 3A ########################
 # Submit the first two letters of each identifier type, 
